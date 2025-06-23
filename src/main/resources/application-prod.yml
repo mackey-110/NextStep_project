@@ -1,0 +1,36 @@
+spring:
+  # 운영 환경 데이터베이스 설정
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/nextstep_prod}
+    username: ${DB_USERNAME:nextstep_user}
+    password: ${DB_PASSWORD:secure_password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 10
+      leak-detection-threshold: 60000
+
+  # 운영환경 JPA 설정 (보안 강화)
+  jpa:
+    hibernate:
+      ddl-auto: validate # 운영환경에서는 스키마 검증만
+    properties:
+      hibernate:
+        "[format_sql]": false
+        "[show_sql]": false
+    show-sql: false
+
+# 운영환경 로깅 (최소한으로)
+logging:
+  level:
+    root: WARN
+    "[web.mvc]": INFO
+    "[org.hibernate.SQL]": WARN
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/nextstep.log
+
+# 운영환경 서버 설정
+server:
+  port: ${PORT:8080}

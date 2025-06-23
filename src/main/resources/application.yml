@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: NextStep
+
+  profiles:
+    active: dev
+
+  # JPA 설정
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        "[format_sql]": true
+        "[show_sql]": true
+    show-sql: true
+
+  # 서버 설정
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# 로깅 설정
+logging:
+  level:
+    "[org.hibernate.SQL]": DEBUG
+    "[org.hibernate.type.descriptor.sql.BasicBinder]": TRACE
+    "[org.springframework.security]": DEBUG
+
+# JWT 설정
+jwt:
+  secret: nextStepSecretKeyForJWTTokenGenerationAndValidation2024
+  expiration: 86400000 # 24시간 (밀리초)
+
+# API 문서 설정
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
