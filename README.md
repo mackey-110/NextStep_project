@@ -36,7 +36,7 @@
 ### 프론트엔드 (Frontend)
 
 ```
-⚛️ Framework     React 18 + TypeScript
+⚛️ Framework     React 19.1 + TypeScript
 ⚡ Build Tool    Vite 5
 🎨 Styling       Tailwind CSS + Styled Components
 🗺️ Routing       React Router v6
