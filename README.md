@@ -33,6 +33,23 @@
 
 ## 🛠 기술 스택
 
+### 프론트엔드 (Frontend)
+
+```
+⚛️ Framework     React 18 + TypeScript
+⚡ Build Tool    Vite 5
+🎨 Styling       Tailwind CSS + Styled Components
+🗺️ Routing       React Router v6
+📊 State Mgmt    Zustand + React Query (TanStack)
+📈 Charts        Chart.js + React Chart.js 2
+🔔 Notifications React Hot Toast
+📋 Forms         React Hook Form + Zod
+🌐 HTTP Client   Axios
+🎪 UI Library    Headless UI + Radix UI
+🔍 Icons         Lucide React
+📱 PWA           Vite PWA Plugin
+```
+
 ### 백엔드 (Backend)
 
 ```
@@ -49,11 +66,13 @@
 ### 개발 도구 (Development)
 
 ```
-☕ Language      Java 17
-🏗️ Build Tool    Maven
-🐳 Container     Docker (예정)
-🧪 Testing       JUnit 5, MockMvc
+☕ Backend       Java 17 + Maven
+� Frontend      Node.js 18+ + pnpm
+🐳 Container     Docker + Docker Compose (예정)
+🧪 Testing       JUnit 5, MockMvc (BE) + Vitest, RTL (FE)
 📊 Monitoring    Spring Actuator (예정)
+🎨 Code Quality  ESLint + Prettier + Husky
+📋 API Client    OpenAPI Generator (자동 생성)
 ```
 
 ---
