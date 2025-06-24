@@ -36,18 +36,16 @@
 ### 프론트엔드 (Frontend)
 
 ```
-⚛️ Framework     React 19.1 + TypeScript
-⚡ Build Tool    Vite 5
-🎨 Styling       Tailwind CSS + Styled Components
-🗺️ Routing       React Router v6
-📊 State Mgmt    Zustand + React Query (TanStack)
-📈 Charts        Chart.js + React Chart.js 2
-🔔 Notifications React Hot Toast
-📋 Forms         React Hook Form + Zod
-🌐 HTTP Client   Axios
-🎪 UI Library    Headless UI + Radix UI
-🔍 Icons         Lucide React
-📱 PWA           Vite PWA Plugin
+⚛️ React & Build    React 19.1 + TypeScript + Vite 6
+🎨 Styling          Styled Components (CSS-in-JS)
+🗺️ Routing          React Router v7
+📊 State Mgmt       Zustand + React Query (TanStack)
+🌐 HTTP Client      Axios
+📋 Forms & Valid    React Hook Form + Zod
+🔔 Notifications    React Hot Toast
+� Charts           Chart.js + React Chart.js 2
+🔍 Icons            Lucide React
+📱 PWA              Vite PWA Plugin
 ```
 
 ### 백엔드 (Backend)
@@ -132,6 +130,8 @@
 
 ## 🏗️ 프로젝트 구조
 
+### 백엔드 (Backend)
+
 ```
 NextStep_project/
 ├── 📁 src/main/java/web/mvc/
@@ -153,6 +153,27 @@ NextStep_project/
 └── 📄 pom.xml                  # Maven 의존성 관리
 ```
 
+### 프론트엔드 (Frontend)
+
+```
+NextStep_front/
+├── 📁 src/
+│   ├── 📁 components/          # React 컴포넌트
+│   │   ├── ui/                # 기본 UI 컴포넌트
+│   │   ├── layout/            # 레이아웃 컴포넌트
+│   │   └── features/          # 기능별 컴포넌트
+│   ├── 📁 pages/              # 페이지 컴포넌트
+│   ├── 📁 hooks/              # 커스텀 훅
+│   ├── 📁 store/              # Zustand 상태 관리
+│   ├── 📁 api/                # Axios API 클라이언트
+│   ├── 📁 types/              # TypeScript 타입 정의
+│   ├── 📁 utils/              # 유틸리티 함수
+│   └── 📁 styles/             # 스타일 관련
+├── 📄 package.json            # npm 의존성 관리
+├── 📄 vite.config.ts          # Vite 설정
+└── 📄 tsconfig.json           # TypeScript 설정
+```
+
 ---
 
 ## 🚀 시작하기
@@ -160,33 +181,39 @@ NextStep_project/
 ### 📋 사전 요구사항
 
 ```bash
+# 백엔드
 ☕ Java 17+
 🗄️ MySQL 8.0+
 🔧 Maven 3.6+
-🛠️ IDE (IntelliJ IDEA 권장)
+
+# 프론트엔드
+🌐 Node.js 18+
+� npm 또는 pnpm
+
+# 개발 도구
+�🛠️ IDE (IntelliJ IDEA, VS Code 권장)
 ```
 
 ### 🔧 설치 및 실행
 
-1. **레포지토리 클론**
+#### 1️⃣ **레포지토리 클론**
 
 ```bash
 git clone https://github.com/your-username/NextStep_project.git
 cd NextStep_project
 ```
 
-2. **MySQL 데이터베이스 생성**
+#### 2️⃣ **백엔드 설정**
 
 ```sql
+# MySQL 데이터베이스 생성
 CREATE DATABASE nextstep_dev;
 CREATE USER 'nextstep_user'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON nextstep_dev.* TO 'nextstep_user'@'localhost';
 ```
 
-3. **설정 파일 수정**
-
 ```yaml
-# src/main/resources/application-dev.yml
+# src/main/resources/application-dev.yml 수정
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/nextstep_dev
@@ -194,42 +221,139 @@ spring:
     password: your_password
 ```
 
-4. **애플리케이션 실행**
-
 ```bash
+# 백엔드 실행
 mvn spring-boot:run
 ```
 
-5. **API 문서 확인**
+#### 3️⃣ **프론트엔드 설정**
+
+```bash
+# 프론트엔드 폴더로 이동
+cd NextStep_front
+
+# 의존성 설치
+npm install
+# 또는
+pnpm install
+
+# 개발 서버 실행
+npm run dev
+# 또는
+pnpm dev
+```
+
+#### 4️⃣ **접속 확인**
 
 ```
+# 백엔드 API
 🌐 Swagger UI: http://localhost:8080/swagger-ui.html
 📋 API Docs: http://localhost:8080/v3/api-docs
 💚 Health Check: http://localhost:8080/api/health
+
+# 프론트엔드
+🖥️ Web App: http://localhost:5173
+📱 모바일뷰: http://localhost:5173 (반응형)
 ```
 
 ---
 
-## 📅 개발 로드맵
+## 📊 프로젝트 진행 상황 (2024.06.24 업데이트)
 
-### 🗓️ 4개월 개발 계획
+### ✅ 1단계 완료 (백엔드 기초 설정) - 2024.06.19
 
-| 월차        | 주요 기능                | 상태      |
-| ----------- | ------------------------ | --------- |
-| **Month 1** | 기본 플랫폼 구축         | 🔄 진행중 |
-|             | • 회원가입/로그인 시스템 | ⏳        |
-|             | • 로드맵 시스템 기초     | ⏳        |
-|             | • 기본 CRUD API          | ⏳        |
-| **Month 2** | 추천 알고리즘 구현       | ⏳ 대기   |
-|             | • 사용자 선호도 수집     | ⏳        |
-|             | • 협업 필터링            | ⏳        |
-| **Month 3** | AI & 검색 시스템         | ⏳ 대기   |
-|             | • OpenAI API 연동        | ⏳        |
-|             | • Elasticsearch 셋업     | ⏳        |
-| **Month 4** | 실시간 대시보드 & 마무리 | ⏳ 대기   |
-|             | • WebSocket 실시간 기능  | ⏳        |
-|             | • Chart.js 시각화        | ⏳        |
-|             | • 배포 및 최적화         | ⏳        |
+- ✅ Spring Boot 프로젝트 초기 설정
+- ✅ 데이터베이스 연결 및 JPA 설정
+- ✅ 기본 패키지 구조 설계
+- ✅ 환경별 설정 파일 구성 (dev, prod)
+- ✅ JWT, Swagger, Validation 등 의존성 추가
+- ✅ 기본 설정 클래스 및 예외 처리 구현
+
+### ✅ 2단계 완료 (엔티티 & Repository 구현) - 2024.06.24
+
+#### ✅ 완료된 엔티티 (Entity)
+
+**핵심 엔티티 (6개)**
+
+- ✅ **User** - 사용자 기본 정보
+- ✅ **UserProfile** - 사용자 프로필 및 온보딩 정보
+- ✅ **RoadMapTemplate** - 로드맵 템플릿
+- ✅ **RoadMapStep** - 로드맵 단계
+- ✅ **UserRoadMap** - 사용자별 로드맵 진행상황
+- ✅ **UserStepProgress** - 사용자별 단계 진행상황
+
+**확장 엔티티 (9개)**
+
+- ✅ **MentorProfile** - 멘토 프로필 및 자격 정보
+- ✅ **AiChatSession** - AI 채팅 세션
+- ✅ **AiChatMessage** - AI 채팅 메시지
+- ✅ **AiUsageLimit** - AI 사용량 제한 추적
+- ✅ **LearningContent** - 학습 콘텐츠 (강의, 아티클 등)
+- ✅ **LearningActivity** - 학습 활동 로그
+- ✅ **DailyStudyStat** - 일별 학습 통계
+- ✅ **SearchLog** - 검색 로그
+- ✅ **Notification** - 실시간 알림
+
+**결제 엔티티 (2개)**
+
+- ✅ **SubscriptionPayment** - 구독 결제 이력
+- ✅ **MentorEarning** - 멘토 수익 관리
+
+**Enum 클래스 (3개)**
+
+- ✅ **UserRole** - 사용자 역할 (GUEST ~ SUPER_ADMIN)
+- ✅ **SubscriptionType** - 구독 타입 (FREE, PREMIUM, PRO)
+- ✅ **CommonEnums** - 공통 열거형 모음
+
+#### ✅ 완료된 Repository 인터페이스 (11개)
+
+- ✅ **UserRepository** - 사용자 관련 쿼리 (23개 메서드)
+- ✅ **RoadMapTemplateRepository** - 로드맵 템플릿 쿼리 (20개 메서드)
+- ✅ **UserRoadMapRepository** - 사용자 로드맵 쿼리 (15개 메서드)
+- ✅ **MentorProfileRepository** - 멘토 프로필 쿼리 (18개 메서드)
+- ✅ **AiChatSessionRepository** - AI 세션 쿼리 (20개 메서드)
+- ✅ **AiChatMessageRepository** - AI 메시지 쿼리 (25개 메서드)
+- ✅ **LearningContentRepository** - 학습 콘텐츠 쿼리 (22개 메서드)
+- ✅ **NotificationRepository** - 알림 쿼리 (18개 메서드)
+- ✅ **SubscriptionPaymentRepository** - 결제 쿼리 (20개 메서드)
+- ✅ **MentorEarningRepository** - 멘토 수익 쿼리 (22개 메서드)
+- ✅ **기타 Repository** - 사용량, 통계, 검색 관련 Repository
+
+### 🔄 3단계 진행 예정 (Service & Controller 구현)
+
+#### 📋 다음 작업 목록
+
+1. **Service 계층 구현**
+
+   - UserService, AuthService (인증/인가)
+   - RoadMapService, ProgressService (로드맵/진도관리)
+   - AiChatService, ContentService (AI/콘텐츠)
+   - PaymentService, NotificationService (결제/알림)
+
+2. **Controller 계층 구현**
+
+   - REST API 엔드포인트 설계
+   - DTO 클래스 생성 및 매핑
+   - API 문서화 (Swagger)
+
+3. **Security 구현**
+
+   - JWT 인증/인가 구현
+   - 역할 기반 접근 제어 (RBAC)
+   - API 보안 설정
+
+4. **테스트 코드 작성**
+   - Unit Test (JUnit 5 + Mockito)
+   - Integration Test
+   - API 테스트 (TestContainers)
+
+### 📋 4단계 예정 (고급 기능 구현)
+
+- [ ] AI 채팅 시스템 구현 (OpenAI API)
+- [ ] 실시간 알림 (WebSocket)
+- [ ] 검색 시스템 (Elasticsearch)
+- [ ] 결제 시스템 연동 (Toss Payments)
+- [ ] 배포 및 CI/CD 파이프라인
 
 ---
 

@@ -4,7 +4,7 @@ import lombok.Getter;
 
 /**
  * 사용자 등급 열거형
- * 권한 레벨: GUEST < USER < PREMIUM < MENTOR < ADMIN < OPERATOR
+ * 권한 레벨: GUEST < FREE_MEMBER < PREMIUM_MEMBER < MENTOR < ADMIN < SUPER_ADMIN
  */
 @Getter
 public enum UserRole {
@@ -15,14 +15,14 @@ public enum UserRole {
     GUEST("게스트", 0),
 
     /**
-     * 일반 회원 - 기본 무료 (제한적 기능)
+     * 무료 회원 - 기본 무료 (제한적 기능)
      */
-    USER("일반 회원", 1),
+    FREE_MEMBER("무료 회원", 1),
 
     /**
      * 프리미엄 회원 - 유료 구독 (₩19,900/월)
      */
-    PREMIUM("프리미엄 회원", 2),
+    PREMIUM_MEMBER("프리미엄 회원", 2),
 
     /**
      * 멘토 - 로드맵 제작, 멘토링 서비스 (수익 모델)
@@ -35,9 +35,9 @@ public enum UserRole {
     ADMIN("관리자", 4),
 
     /**
-     * 운영자 - 시스템 전체 관리
+     * 최고 관리자 - 시스템 전체 관리
      */
-    OPERATOR("운영자", 5);
+    SUPER_ADMIN("최고 관리자", 5);
 
     private final String description;
     private final int level;
